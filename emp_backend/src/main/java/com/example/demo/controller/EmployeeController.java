@@ -20,6 +20,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * EmployeeController handles HTTP requests for employee-related operations.
+ * It provides endpoints to create, read, update, and delete employee records.
+ */
 @RestController
 @RequestMapping("/api/v1/")
 public class EmployeeController {
