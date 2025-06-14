@@ -92,7 +92,9 @@ public class EmployeeController {
         Map<String, Boolean> response = new HashMap<>();
         response.put("Deleted", Boolean.TRUE);
         logger.info("Employee with id: " + id + " deleted successfully");
+        logger.info("Response: " + response);
         return ResponseEntity.ok(response);
+
 
     }
 
