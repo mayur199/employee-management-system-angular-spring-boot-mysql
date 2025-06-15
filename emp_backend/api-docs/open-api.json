@@ -10,14 +10,135 @@
       "name": "EmployeeController handles HTTP requests for employee-related operations."
     },
     {
-      "name": "com.example.demo.adminController.adminController"
+      "name": "AdminController handles HTTP requests for admin-related operations."
     }
   ],
   "paths": {
     "/api/v1/employees": {
+      "post": {
+        "summary": "Creates a new employee record in the database.",
+        "description": "Creates a new employee record in the database.",
+        "tags": [
+          "EmployeeController handles HTTP requests for employee-related operations."
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "fname",
+                  "lname",
+                  "email",
+                  "salary",
+                  "department",
+                  "designation",
+                  "joiningDate"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "description": ""
+                  },
+                  "fname": {
+                    "type": "string",
+                    "description": ""
+                  },
+                  "lname": {
+                    "type": "string",
+                    "description": ""
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": ""
+                  },
+                  "salary": {
+                    "type": "integer",
+                    "description": ""
+                  },
+                  "department": {
+                    "type": "string",
+                    "description": ""
+                  },
+                  "designation": {
+                    "type": "string",
+                    "description": ""
+                  },
+                  "joiningDate": {
+                    "type": "string",
+                    "description": ""
+                  }
+                },
+                "description": "com.example.demo.model.Employee"
+              },
+              "example": "{\n  \"id\": 0,\n  \"fname\": \"\",\n  \"lname\": \"\",\n  \"email\": \"\",\n  \"salary\": 0,\n  \"department\": \"\",\n  \"designation\": \"\",\n  \"joiningDate\": 1749992716206\n}"
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "fname",
+                    "lname",
+                    "email",
+                    "salary",
+                    "department",
+                    "designation",
+                    "joiningDate"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": ""
+                    },
+                    "fname": {
+                      "type": "string",
+                      "description": ""
+                    },
+                    "lname": {
+                      "type": "string",
+                      "description": ""
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": ""
+                    },
+                    "salary": {
+                      "type": "integer",
+                      "description": ""
+                    },
+                    "department": {
+                      "type": "string",
+                      "description": ""
+                    },
+                    "designation": {
+                      "type": "string",
+                      "description": ""
+                    },
+                    "joiningDate": {
+                      "type": "string",
+                      "description": ""
+                    }
+                  },
+                  "description": "com.example.demo.model.Employee"
+                },
+                "example": "{\n  \"id\": 0,\n  \"fname\": \"\",\n  \"lname\": \"\",\n  \"email\": \"\",\n  \"salary\": 0,\n  \"department\": \"\",\n  \"designation\": \"\",\n  \"joiningDate\": 1749992716212\n}"
+              }
+            }
+          }
+        }
+      },
       "get": {
-        "summary": "getAllEmployees",
-        "description": "getAllEmployees",
+        "summary": "Retrieves all employee records from the database.",
+        "description": "Retrieves all employee records from the database.",
         "tags": [
           "EmployeeController handles HTTP requests for employee-related operations."
         ],
@@ -79,128 +200,7 @@
                   },
                   "description": "java.util.List<com.example.demo.model.Employee>"
                 },
-                "example": "[\n  {\n    \"id\": 0,\n    \"fname\": \"\",\n    \"lname\": \"\",\n    \"email\": \"\",\n    \"salary\": 0,\n    \"department\": \"\",\n    \"designation\": \"\",\n    \"joiningDate\": 1749964125391\n  }\n]"
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "summary": "createEmployee",
-        "description": "createEmployee",
-        "tags": [
-          "EmployeeController handles HTTP requests for employee-related operations."
-        ],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "id",
-                  "fname",
-                  "lname",
-                  "email",
-                  "salary",
-                  "department",
-                  "designation",
-                  "joiningDate"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "integer",
-                    "description": ""
-                  },
-                  "fname": {
-                    "type": "string",
-                    "description": ""
-                  },
-                  "lname": {
-                    "type": "string",
-                    "description": ""
-                  },
-                  "email": {
-                    "type": "string",
-                    "description": ""
-                  },
-                  "salary": {
-                    "type": "integer",
-                    "description": ""
-                  },
-                  "department": {
-                    "type": "string",
-                    "description": ""
-                  },
-                  "designation": {
-                    "type": "string",
-                    "description": ""
-                  },
-                  "joiningDate": {
-                    "type": "string",
-                    "description": ""
-                  }
-                },
-                "description": "com.example.demo.model.Employee"
-              },
-              "example": "{\n  \"id\": 0,\n  \"fname\": \"\",\n  \"lname\": \"\",\n  \"email\": \"\",\n  \"salary\": 0,\n  \"department\": \"\",\n  \"designation\": \"\",\n  \"joiningDate\": 1749964125403\n}"
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "id",
-                    "fname",
-                    "lname",
-                    "email",
-                    "salary",
-                    "department",
-                    "designation",
-                    "joiningDate"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "integer",
-                      "description": ""
-                    },
-                    "fname": {
-                      "type": "string",
-                      "description": ""
-                    },
-                    "lname": {
-                      "type": "string",
-                      "description": ""
-                    },
-                    "email": {
-                      "type": "string",
-                      "description": ""
-                    },
-                    "salary": {
-                      "type": "integer",
-                      "description": ""
-                    },
-                    "department": {
-                      "type": "string",
-                      "description": ""
-                    },
-                    "designation": {
-                      "type": "string",
-                      "description": ""
-                    },
-                    "joiningDate": {
-                      "type": "string",
-                      "description": ""
-                    }
-                  },
-                  "description": "com.example.demo.model.Employee"
-                },
-                "example": "{\n  \"id\": 0,\n  \"fname\": \"\",\n  \"lname\": \"\",\n  \"email\": \"\",\n  \"salary\": 0,\n  \"department\": \"\",\n  \"designation\": \"\",\n  \"joiningDate\": 1749964125410\n}"
+                "example": "[\n  {\n    \"id\": 0,\n    \"fname\": \"\",\n    \"lname\": \"\",\n    \"email\": \"\",\n    \"salary\": 0,\n    \"department\": \"\",\n    \"designation\": \"\",\n    \"joiningDate\": 1749992716228\n  }\n]"
               }
             }
           }
@@ -209,8 +209,8 @@
     },
     "/api/v1/employees/{id}": {
       "delete": {
-        "summary": "deleteEmployee",
-        "description": "deleteEmployee",
+        "summary": "Deletes an employee record by its ID.",
+        "description": "Deletes an employee record by its ID.",
         "tags": [
           "EmployeeController handles HTTP requests for employee-related operations."
         ],
@@ -223,7 +223,7 @@
             },
             "example": "0",
             "required": true,
-            "description": ""
+            "description": "the ID of the employee to be deleted."
           }
         ],
         "responses": {
@@ -250,86 +250,9 @@
           }
         }
       },
-      "get": {
-        "summary": "getByID",
-        "description": "getByID",
-        "tags": [
-          "EmployeeController handles HTTP requests for employee-related operations."
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "schema": {
-              "type": "integer"
-            },
-            "example": "0",
-            "required": true,
-            "description": ""
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "id",
-                    "fname",
-                    "lname",
-                    "email",
-                    "salary",
-                    "department",
-                    "designation",
-                    "joiningDate"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "integer",
-                      "description": ""
-                    },
-                    "fname": {
-                      "type": "string",
-                      "description": ""
-                    },
-                    "lname": {
-                      "type": "string",
-                      "description": ""
-                    },
-                    "email": {
-                      "type": "string",
-                      "description": ""
-                    },
-                    "salary": {
-                      "type": "integer",
-                      "description": ""
-                    },
-                    "department": {
-                      "type": "string",
-                      "description": ""
-                    },
-                    "designation": {
-                      "type": "string",
-                      "description": ""
-                    },
-                    "joiningDate": {
-                      "type": "string",
-                      "description": ""
-                    }
-                  },
-                  "description": "com.example.demo.model.Employee"
-                },
-                "example": "{\n  \"id\": 0,\n  \"fname\": \"\",\n  \"lname\": \"\",\n  \"email\": \"\",\n  \"salary\": 0,\n  \"department\": \"\",\n  \"designation\": \"\",\n  \"joiningDate\": 1749964125489\n}"
-              }
-            }
-          }
-        }
-      },
       "put": {
-        "summary": "updateEmployeeByID",
-        "description": "updateEmployeeByID",
+        "summary": "Updates an existing employee record by its ID.",
+        "description": "Updates an existing employee record by its ID.",
         "tags": [
           "EmployeeController handles HTTP requests for employee-related operations."
         ],
@@ -342,7 +265,7 @@
             },
             "example": "0",
             "required": true,
-            "description": ""
+            "description": "the ID of the employee to be updated."
           }
         ],
         "requestBody": {
@@ -396,7 +319,7 @@
                 },
                 "description": "com.example.demo.model.Employee"
               },
-              "example": "{\n  \"id\": 0,\n  \"fname\": \"\",\n  \"lname\": \"\",\n  \"email\": \"\",\n  \"salary\": 0,\n  \"department\": \"\",\n  \"designation\": \"\",\n  \"joiningDate\": 1749964125501\n}"
+              "example": "{\n  \"id\": 0,\n  \"fname\": \"\",\n  \"lname\": \"\",\n  \"email\": \"\",\n  \"salary\": 0,\n  \"department\": \"\",\n  \"designation\": \"\",\n  \"joiningDate\": 1749992716329\n}"
             }
           }
         },
@@ -453,7 +376,84 @@
                   },
                   "description": "com.example.demo.model.Employee"
                 },
-                "example": "{\n  \"id\": 0,\n  \"fname\": \"\",\n  \"lname\": \"\",\n  \"email\": \"\",\n  \"salary\": 0,\n  \"department\": \"\",\n  \"designation\": \"\",\n  \"joiningDate\": 1749964125506\n}"
+                "example": "{\n  \"id\": 0,\n  \"fname\": \"\",\n  \"lname\": \"\",\n  \"email\": \"\",\n  \"salary\": 0,\n  \"department\": \"\",\n  \"designation\": \"\",\n  \"joiningDate\": 1749992716341\n}"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Retrieves an employee record by its ID.",
+        "description": "Retrieves an employee record by its ID.",
+        "tags": [
+          "EmployeeController handles HTTP requests for employee-related operations."
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "0",
+            "required": true,
+            "description": "the ID of the employee to be retrieved."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "fname",
+                    "lname",
+                    "email",
+                    "salary",
+                    "department",
+                    "designation",
+                    "joiningDate"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": ""
+                    },
+                    "fname": {
+                      "type": "string",
+                      "description": ""
+                    },
+                    "lname": {
+                      "type": "string",
+                      "description": ""
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": ""
+                    },
+                    "salary": {
+                      "type": "integer",
+                      "description": ""
+                    },
+                    "department": {
+                      "type": "string",
+                      "description": ""
+                    },
+                    "designation": {
+                      "type": "string",
+                      "description": ""
+                    },
+                    "joiningDate": {
+                      "type": "string",
+                      "description": ""
+                    }
+                  },
+                  "description": "com.example.demo.model.Employee"
+                },
+                "example": "{\n  \"id\": 0,\n  \"fname\": \"\",\n  \"lname\": \"\",\n  \"email\": \"\",\n  \"salary\": 0,\n  \"department\": \"\",\n  \"designation\": \"\",\n  \"joiningDate\": 1749992716352\n}"
               }
             }
           }
@@ -462,10 +462,10 @@
     },
     "/api/v1/admin": {
       "get": {
-        "summary": "getAllAdmins",
-        "description": "getAllAdmins",
+        "summary": "Retrieves all admin records from the database.",
+        "description": "Retrieves all admin records from the database.",
         "tags": [
-          "com.example.demo.adminController.adminController"
+          "AdminController handles HTTP requests for admin-related operations."
         ],
         "parameters": [],
         "responses": {
@@ -496,9 +496,9 @@
                         "description": ""
                       }
                     },
-                    "description": "java.util.List<com.example.demo.adminModel.adminModel>"
+                    "description": "java.util.List<com.example.demo.model.AdminModel>"
                   },
-                  "description": "java.util.List<com.example.demo.adminModel.adminModel>"
+                  "description": "java.util.List<com.example.demo.model.AdminModel>"
                 },
                 "example": "[\n  {\n    \"adminID\": 0,\n    \"adminName\": \"\",\n    \"adminPassword\": \"\"\n  }\n]"
               }
