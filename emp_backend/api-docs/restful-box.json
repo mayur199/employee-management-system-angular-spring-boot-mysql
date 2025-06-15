@@ -1,0 +1,160 @@
+{
+  "projectName": "employee-management-system-angular-spring-boot-mysql",
+  "apiItems": [
+    {
+      "id": "aeb521ee0f61483397afa17505311395",
+      "name": "Retrieves all employee records from the database.",
+      "protocol": "http",
+      "url": "/api/v1/employees",
+      "method": "GET",
+      "headers": [],
+      "params": [],
+      "bodyJson": "",
+      "description": "",
+      "project": "employee-management-system-angular-spring-boot-mysql",
+      "moduleName": "emp_backend",
+      "packageName": "",
+      "ts": 1749992952478,
+      "framework": "Spring MVC",
+      "syncFlag": true,
+      "tags": [],
+      "folderPath": "/EmployeeController handles HTTP requests for employee-related operations."
+    },
+    {
+      "id": "160baca7400743079152a648a9956002",
+      "name": "Creates a new employee record in the database.",
+      "protocol": "http",
+      "url": "/api/v1/employees",
+      "method": "POST",
+      "headers": [],
+      "params": [],
+      "bodyJson": "{\n  \"id\": 0,\n  \"fname\": \"\",\n  \"lname\": \"\",\n  \"email\": \"\",\n  \"salary\": 0,\n  \"department\": \"\",\n  \"designation\": \"\",\n  \"joiningDate\": 1749992952602\n}",
+      "description": "",
+      "project": "employee-management-system-angular-spring-boot-mysql",
+      "moduleName": "emp_backend",
+      "packageName": "",
+      "ts": 1749992952545,
+      "framework": "Spring MVC",
+      "syncFlag": true,
+      "tags": [],
+      "folderPath": "/EmployeeController handles HTTP requests for employee-related operations."
+    },
+    {
+      "id": "14bfc7d200034962aa03f807d4efb194",
+      "name": "Retrieves an employee record by its ID.",
+      "protocol": "http",
+      "url": "/api/v1/employees/{id}",
+      "method": "GET",
+      "headers": [],
+      "params": [
+        {
+          "key": "id",
+          "value": "0"
+        }
+      ],
+      "bodyJson": "",
+      "description": "",
+      "project": "employee-management-system-angular-spring-boot-mysql",
+      "moduleName": "emp_backend",
+      "packageName": "",
+      "ts": 1749992952602,
+      "framework": "Spring MVC",
+      "syncFlag": true,
+      "tags": [],
+      "folderPath": "/EmployeeController handles HTTP requests for employee-related operations."
+    },
+    {
+      "id": "2108a0fbb1524ad1bb4bf7124600cb78",
+      "name": "Updates an existing employee record by its ID.",
+      "protocol": "http",
+      "url": "/api/v1/employees/{id}",
+      "method": "PUT",
+      "headers": [],
+      "params": [
+        {
+          "key": "id",
+          "value": "0"
+        }
+      ],
+      "bodyJson": "{\n  \"id\": 0,\n  \"fname\": \"\",\n  \"lname\": \"\",\n  \"email\": \"\",\n  \"salary\": 0,\n  \"department\": \"\",\n  \"designation\": \"\",\n  \"joiningDate\": 1749992952614\n}",
+      "description": "",
+      "project": "employee-management-system-angular-spring-boot-mysql",
+      "moduleName": "emp_backend",
+      "packageName": "",
+      "ts": 1749992952607,
+      "framework": "Spring MVC",
+      "syncFlag": true,
+      "tags": [],
+      "folderPath": "/EmployeeController handles HTTP requests for employee-related operations."
+    },
+    {
+      "id": "c069c4c8f18a4576a408cedcc8c188a2",
+      "name": "Deletes an employee record by its ID.",
+      "protocol": "http",
+      "url": "/api/v1/employees/{id}",
+      "method": "DELETE",
+      "headers": [],
+      "params": [
+        {
+          "key": "id",
+          "value": "0"
+        }
+      ],
+      "bodyJson": "",
+      "description": "",
+      "project": "employee-management-system-angular-spring-boot-mysql",
+      "moduleName": "emp_backend",
+      "packageName": "",
+      "ts": 1749992952614,
+      "framework": "Spring MVC",
+      "syncFlag": true,
+      "tags": [],
+      "folderPath": "/EmployeeController handles HTTP requests for employee-related operations."
+    },
+    {
+      "id": "e08f7084d3d9482bb02e5fabd8294edc",
+      "name": "Retrieves all admin records from the database.",
+      "protocol": "http",
+      "url": "/api/v1/admin",
+      "method": "GET",
+      "headers": [],
+      "params": [],
+      "bodyJson": "",
+      "description": "",
+      "project": "employee-management-system-angular-spring-boot-mysql",
+      "moduleName": "emp_backend",
+      "packageName": "",
+      "ts": 1749992952619,
+      "framework": "Spring MVC",
+      "syncFlag": true,
+      "tags": [],
+      "folderPath": "/AdminController handles HTTP requests for admin-related operations."
+    }
+  ],
+  "environment": {
+    "project": "employee-management-system-angular-spring-boot-mysql",
+    "envList": []
+  },
+  "commonHeader": {
+    "project": "employee-management-system-angular-spring-boot-mysql",
+    "globalHeaderList": []
+  },
+  "parameters": [],
+  "setting": {
+    "project": "employee-management-system-angular-spring-boot-mysql",
+    "saveRequestLog": true,
+    "enablePreRequestScript": true,
+    "enablePostRequestScript": true,
+    "preRequestScriptPath": "",
+    "postRequestScriptPath": "",
+    "preRequestScriptContent": "",
+    "postRequestScriptContent": "",
+    "preRequestScriptContentLastModifiedTime": "",
+    "postRequestScriptContentLastModifiedTime": "",
+    "requestTimeout": 0,
+    "generateMultilineCurlSnippet": false,
+    "supportForWslPath": false,
+    "supportMinifyJson": false,
+    "downloadDirectory": ""
+  }
+}
