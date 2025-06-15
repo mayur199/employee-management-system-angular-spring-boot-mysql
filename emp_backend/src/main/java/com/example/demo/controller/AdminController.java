@@ -14,10 +14,16 @@ import com.example.demo.repository.AdminRepository;
 @RequestMapping("/api/v1/")
 public class AdminController {
 
+
 	@Autowired
 	private AdminRepository repo;
 
-	// get all
+
+	/**
+	 * Retrieves all admin records from the database.
+	 *
+	 * @return a list of AdminModel objects representing all admins.
+	 */
 
 	@GetMapping("/admin")
 	public List<AdminModel> getAllAdmins() {
