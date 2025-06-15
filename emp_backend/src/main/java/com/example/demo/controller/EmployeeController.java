@@ -3,7 +3,6 @@ package com.example.demo.controller;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.model.Employee;
 import com.example.demo.repository.EmployeeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,13 +17,17 @@ import java.util.logging.Logger;
  */
 @RestController
 @RequestMapping("/api/v1/")
-
+@SuppressWarnings("")
 public class EmployeeController {
 
     private static final Logger logger = Logger.getLogger(EmployeeController.class.getName());
 
-    @Autowired
-    private EmployeeRepository employeeRepository;
+
+    private final EmployeeRepository employeeRepository;
+
+    public EmployeeController(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
+    }
 
     /**
      * Retrieves all employee records from the database.
