@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.AdminModel;
 import com.example.demo.repository.AdminRepository;
 
+/**
+ * AdminController handles HTTP requests for admin-related operations.
+ * It provides an endpoint to retrieve all admin records from the database.
+ */
 @RestController
 @RequestMapping("/api/v1/")
 public class AdminController {
