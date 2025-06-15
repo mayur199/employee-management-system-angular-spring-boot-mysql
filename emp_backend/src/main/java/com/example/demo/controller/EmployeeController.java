@@ -26,7 +26,11 @@ public class EmployeeController {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    //get all data
+    /**
+     * Retrieves all employee records from the database.
+     *
+     * @return a list of Employee objects representing all employees.
+     */
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/employees")
     public List<Employee> getAllEmployees() {
@@ -35,7 +39,12 @@ public class EmployeeController {
     }
 
 
-    //create
+    /**
+     * Creates a new employee record in the database.
+     *
+     * @param employee the Employee object to be created.
+     * @return the created Employee object.
+     */
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/employees")
     public Employee createEmployee(@RequestBody Employee employee) {
@@ -44,7 +53,13 @@ public class EmployeeController {
     }
 
 
-    // get data by id
+    /**
+     * Retrieves an employee record by its ID.
+     *
+     * @param id the ID of the employee to be retrieved.
+     * @return the Employee object with the specified ID.
+     * @throws ResourceNotFoundException if the employee with the specified ID does not exist.
+     */
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/employees/{id}")
     public ResponseEntity<Employee> getByID(@PathVariable Long id) {
@@ -55,7 +70,14 @@ public class EmployeeController {
     }
 
 
-    //update data
+    /**
+     * Updates an existing employee record by its ID.
+     *
+     * @param id              the ID of the employee to be updated.
+     * @param employeeDetails the Employee object containing updated details.
+     * @return the updated Employee object.
+     * @throws ResourceNotFoundException if the employee with the specified ID does not exist.
+     */
     @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("/employees/{id}")
     public ResponseEntity<Employee> updateEmployeeByID(@PathVariable Long id, @RequestBody Employee employeeDetails) {
@@ -77,7 +99,13 @@ public class EmployeeController {
         return ResponseEntity.ok(updatedEmployee);
     }
 
-
+    /**
+     * Deletes an employee record by its ID.
+     *
+     * @param id the ID of the employee to be deleted.
+     * @return a response entity containing a map with a success message.
+     * @throws ResourceNotFoundException if the employee with the specified ID does not exist.
+     */
     @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("/employees/{id}")
     public ResponseEntity<Map<String, Boolean>> deleteEmployee(@PathVariable Long id) {

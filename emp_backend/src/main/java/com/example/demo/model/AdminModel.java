@@ -1,62 +1,31 @@
 package com.example.demo.model;
 
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
+/**
+ * The type Admin model.
+ */
 @Entity
-@Table(name="admin")
+@Table(name = "admin")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class AdminModel {
-	
-	
-	public AdminModel() {}
-	
-	
-	public AdminModel(String adminName, String adminPassword) {
-		super();
-		this.adminName = adminName;
-		this.adminPassword = adminPassword;
-	}
-	
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long adminID;
-	
-	@Column(name="adminName")
-	private String adminName;
-	
-	@Column(name="adminPassword")
-	private String adminPassword;
-	
-	
-	
-	
-	public long getAdminID() {
-		return adminID;
-	}
-	public void setAdminID(long adminID) {
-		this.adminID = adminID;
-	}
-	public String getAdminName() {
-		return adminName;
-	}
-	public void setAdminName(String adminName) {
-		this.adminName = adminName;
-	}
-	public String getAdminPassword() {
-		return adminPassword;
-	}
-	public void setAdminPassword(String adminPassword) {
-		this.adminPassword = adminPassword;
-	}
-	
-	
-	
-	
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long adminID;
+
+    @Column(name = "adminName")
+    private String adminName;
+
+    @Column(name = "adminPassword")
+    private String adminPassword;
+
+
 }
