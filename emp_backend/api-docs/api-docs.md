@@ -1,4 +1,4 @@
-# employee-management-system-angular-spring-boot-mysql API Documentation
+# Employee Management System API Documentation
 
 ## Introduction
 
@@ -32,7 +32,6 @@ None
   }
 ]
 ```
-
 
 ## createEmployee
 
@@ -76,7 +75,6 @@ None
 }
 ```
 
-
 ## getByID
 
 `GET` /api/v1/employees/{id}
@@ -89,9 +87,10 @@ None
 
 - Path Parameters
 
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | integer | Yes |  |
+
+| Field | Type    | Required | Description |
+| ----- | ------- | -------- | ----------- |
+| id    | integer | Yes      |             |
 
 ### Response
 
@@ -110,7 +109,6 @@ None
 }
 ```
 
-
 ## updateEmployeeByID
 
 `PUT` /api/v1/employees/{id}
@@ -123,9 +121,10 @@ None
 
 - Path Parameters
 
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | integer | Yes |  |
+
+| Field | Type    | Required | Description |
+| ----- | ------- | -------- | ----------- |
+| id    | integer | Yes      |             |
 
 - Body Parameters. JSON object format description:
 
@@ -159,7 +158,6 @@ None
 }
 ```
 
-
 ## deleteEmployee
 
 `DELETE` /api/v1/employees/{id}
@@ -172,9 +170,10 @@ None
 
 - Path Parameters
 
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | integer | Yes |  |
+
+| Field | Type    | Required | Description |
+| ----- | ------- | -------- | ----------- |
+| id    | integer | Yes      |             |
 
 ### Response
 
@@ -185,7 +184,6 @@ None
   "MAP_KEY": "boolean //"
 }
 ```
-
 
 ## getAllAdmins
 
@@ -212,5 +210,3 @@ None
   }
 ]
 ```
-
-
