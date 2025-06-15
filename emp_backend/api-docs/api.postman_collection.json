@@ -1,0 +1,181 @@
+{
+  "info": {
+    "name": "employee-management-system-angular-spring-boot-mysql",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "EmployeeController handles HTTP requests for employee-related operations.",
+      "item": [
+        {
+          "name": "getAllEmployees",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "/api/v1/employees",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "",
+                "api",
+                "v1",
+                "employees"
+              ]
+            },
+            "body": {},
+            "responses": []
+          }
+        },
+        {
+          "name": "createEmployee",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "/api/v1/employees",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "",
+                "api",
+                "v1",
+                "employees"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 0,\n  \"fname\": \"\",\n  \"lname\": \"\",\n  \"email\": \"\",\n  \"salary\": 0,\n  \"department\": \"\",\n  \"designation\": \"\",\n  \"joiningDate\": 1749964162640\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "responses": []
+          }
+        },
+        {
+          "name": "getByID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "0",
+                  "description": "",
+                  "disabled": false
+                }
+              ],
+              "raw": "/api/v1/employees/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "",
+                "api",
+                "v1",
+                "employees",
+                ":id"
+              ]
+            },
+            "body": {},
+            "responses": []
+          }
+        },
+        {
+          "name": "updateEmployeeByID",
+          "request": {
+            "method": "PUT",
+            "url": {
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "0",
+                  "description": "",
+                  "disabled": false
+                }
+              ],
+              "raw": "/api/v1/employees/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "",
+                "api",
+                "v1",
+                "employees",
+                ":id"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 0,\n  \"fname\": \"\",\n  \"lname\": \"\",\n  \"email\": \"\",\n  \"salary\": 0,\n  \"department\": \"\",\n  \"designation\": \"\",\n  \"joiningDate\": 1749964162648\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "responses": []
+          }
+        },
+        {
+          "name": "deleteEmployee",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "0",
+                  "description": "",
+                  "disabled": false
+                }
+              ],
+              "raw": "/api/v1/employees/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "",
+                "api",
+                "v1",
+                "employees",
+                ":id"
+              ]
+            },
+            "body": {},
+            "responses": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "com.example.demo.adminController.adminController",
+      "item": [
+        {
+          "name": "getAllAdmins",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "/api/v1/admin",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "",
+                "api",
+                "v1",
+                "admin"
+              ]
+            },
+            "body": {},
+            "responses": []
+          }
+        }
+      ]
+    }
+  ]
+}
