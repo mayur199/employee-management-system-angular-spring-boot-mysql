@@ -5,6 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.Employee;
 
+/**
+ * The interface Employee repository.
+ */
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee,Long>{
 
