@@ -1,8 +1,8 @@
-# Employee Management System API Documentation
+# employee-management-system-angular-spring-boot-mysql API Documentation
 
 ## Introduction
 
-## getAllEmployees
+## Retrieves all employee records from the database.
 
 `GET` /api/v1/employees
 
@@ -33,7 +33,8 @@ None
 ]
 ```
 
-## createEmployee
+
+## Creates a new employee record in the database.
 
 `POST` /api/v1/employees
 
@@ -75,7 +76,8 @@ None
 }
 ```
 
-## getByID
+
+## Retrieves an employee record by its ID.
 
 `GET` /api/v1/employees/{id}
 
@@ -87,10 +89,9 @@ None
 
 - Path Parameters
 
-
-| Field | Type    | Required | Description |
-| ----- | ------- | -------- | ----------- |
-| id    | integer | Yes      |             |
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| id | integer | Yes | the ID of the employee to be retrieved. |
 
 ### Response
 
@@ -109,7 +110,8 @@ None
 }
 ```
 
-## updateEmployeeByID
+
+## Updates an existing employee record by its ID.
 
 `PUT` /api/v1/employees/{id}
 
@@ -121,10 +123,9 @@ None
 
 - Path Parameters
 
-
-| Field | Type    | Required | Description |
-| ----- | ------- | -------- | ----------- |
-| id    | integer | Yes      |             |
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| id | integer | Yes | the ID of the employee to be updated. |
 
 - Body Parameters. JSON object format description:
 
@@ -158,7 +159,8 @@ None
 }
 ```
 
-## deleteEmployee
+
+## Deletes an employee record by its ID.
 
 `DELETE` /api/v1/employees/{id}
 
@@ -170,10 +172,9 @@ None
 
 - Path Parameters
 
-
-| Field | Type    | Required | Description |
-| ----- | ------- | -------- | ----------- |
-| id    | integer | Yes      |             |
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| id | integer | Yes | the ID of the employee to be deleted. |
 
 ### Response
 
@@ -185,7 +186,8 @@ None
 }
 ```
 
-## getAllAdmins
+
+## Retrieves all admin records from the database.
 
 `GET` /api/v1/admin
 
@@ -210,3 +212,5 @@ None
   }
 ]
 ```
+
+
