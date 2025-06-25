@@ -12,7 +12,7 @@ export class EmployeeService {
 
 
  
-  private baseURL = "http://localhost:8080/api/v1/employees";
+  private baseURL = "http://emp-app1-env.eba-g9pc7kcp.ap-south-1.elasticbeanstalk.com/api/v1/employees";
 
   constructor(private httpClient: HttpClient) { }
   
