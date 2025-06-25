@@ -2,12 +2,7 @@ package com.example.demo.model;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -47,5 +42,14 @@ public class Employee {
 
     @Column(name = "jd")
     private LocalDate joiningDate;
+
+    @Column(name = "status")
+    @Convert(converter = StatusConverter.class)
+    private Status status;
+
+//    public String getStatus() {
+//        return status != null ? status.getLabel() : null;
+//    }
+
 
 }

@@ -1,24 +1,18 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.EmployeeDto;
+import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.model.Employee;
+import com.example.demo.repository.EmployeeRepository;
+import com.example.demo.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
-
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.example.demo.exception.ResourceNotFoundException;
-import com.example.demo.model.Employee;
-import com.example.demo.repository.EmployeeRepository;
 
 /**
  * EmployeeController handles HTTP requests for employee-related operations. It
@@ -29,114 +23,117 @@ import com.example.demo.repository.EmployeeRepository;
 @SuppressWarnings("")
 public class EmployeeController {
 
-	private static final Logger logger = Logger.getLogger(EmployeeController.class.getName());
+    private static final Logger logger = Logger.getLogger(EmployeeController.class.getName());
 
-	private final EmployeeRepository employeeRepository;
+    private final EmployeeRepository employeeRepository;
+    @Autowired
+    private EmployeeService employeeService;
 
-	public EmployeeController(EmployeeRepository employeeRepository) {
-		this.employeeRepository = employeeRepository;
-	}
+    public EmployeeController(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
+    }
 
-	/**
-	 * Retrieves all employee records from the database.
-	 *
-	 * @return a list of Employee objects representing all employees.
-	 */
-	@CrossOrigin(origins = { "http://employee-management-frontend-app.s3-website.ap-south-1.amazonaws.com",
-			"http://localhost:4200" })
-	@GetMapping("/employees")
-	public List<Employee> getAllEmployees() {
-		logger.info("Fetching all employees");
-		return employeeRepository.findAll();
-	}
+    /**
+     * Retrieves all employee records from the database.
+     *
+     * @return a list of Employee objects representing all employees.
+     */
+    @CrossOrigin(origins = {"http://employee-management-frontend-app.s3-website.ap-south-1.amazonaws.com",
+            "http://localhost:4200"})
+    @GetMapping("/employees")
+    public List<Employee> getAllEmployees() {
+        logger.info("Fetching all employees");
+        return employeeRepository.findAll();
+    }
 
-	/**
-	 * Creates a new employee record in the database.
-	 *
-	 * @param employee the Employee object to be created.
-	 * @return the created Employee object.
-	 */
-	@CrossOrigin(origins = { "http://employee-management-frontend-app.s3-website.ap-south-1.amazonaws.com",
-			"http://localhost:4200" })
-	@PostMapping("/employees")
-	public Employee createEmployee(@RequestBody Employee employee) {
-		logger.info("Creating new employee: " + employee);
-		return employeeRepository.save(employee);
-	}
+    /**
+     * Creates a new employee record in the database.
+     *
+     * @param employee the Employee object to be created.
+     * @return the created Employee object.
+     */
+    @CrossOrigin(origins = {"http://employee-management-frontend-app.s3-website.ap-south-1.amazonaws.com",
+            "http://localhost:4200"})
+    @PostMapping("/employees")
+    public EmployeeDto createEmployee(@RequestBody EmployeeDto dto) {
+        logger.info("Creating new employee: " + dto);
+        //return employeeRepository.save(employee);
+        return employeeService.saveEmployee(dto);
+    }
 
-	/**
-	 * Retrieves an employee record by its ID.
-	 *
-	 * @param id the ID of the employee to be retrieved.
-	 * @return the Employee object with the specified ID.
-	 * @throws ResourceNotFoundException if the employee with the specified ID does
-	 *                                   not exist.
-	 */
-	@CrossOrigin(origins = { "http://employee-management-frontend-app.s3-website.ap-south-1.amazonaws.com",
-			"http://localhost:4200" })
-	@GetMapping("/employees/{id}")
-	public ResponseEntity<Employee> getByID(@PathVariable Long id) {
-		logger.info("Fetching employee with id: " + id);
-		Employee employee = employeeRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Employee with id " + id + "does not exists"));
-		return ResponseEntity.ok(employee);
-	}
+    /**
+     * Retrieves an employee record by its ID.
+     *
+     * @param id the ID of the employee to be retrieved.
+     * @return the Employee object with the specified ID.
+     * @throws ResourceNotFoundException if the employee with the specified ID does
+     *                                   not exist.
+     */
+    @CrossOrigin(origins = {"http://employee-management-frontend-app.s3-website.ap-south-1.amazonaws.com",
+            "http://localhost:4200"})
+    @GetMapping("/employees/{id}")
+    public ResponseEntity<EmployeeDto> getByID(@PathVariable Long id) {
+        logger.info("Fetching employee with id: " + id);
 
-	/**
-	 * Updates an existing employee record by its ID.
-	 *
-	 * @param id              the ID of the employee to be updated.
-	 * @param employeeDetails the Employee object containing updated details.
-	 * @return the updated Employee object.
-	 * @throws ResourceNotFoundException if the employee with the specified ID does
-	 *                                   not exist.
-	 */
-	@CrossOrigin(origins = { "http://employee-management-frontend-app.s3-website.ap-south-1.amazonaws.com",
-			"http://localhost:4200" })
-	@PutMapping("/employees/{id}")
-	public ResponseEntity<Employee> updateEmployeeByID(@PathVariable Long id, @RequestBody Employee employeeDetails) {
-		logger.info("Updating employee with id: " + id + " with details: " + employeeDetails);
-		Employee employee = employeeRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Employee with id " + id + "does not exists"));
+        EmployeeDto employee = employeeService.getEmployeeById(id);
+        return ResponseEntity.ok(employee);
+    }
 
-		employee.setFname(employeeDetails.getFname());
-		employee.setLname(employeeDetails.getLname());
-		employee.setEmail(employeeDetails.getEmail());
-		employee.setDepartment(employeeDetails.getDepartment());
-		employee.setDesignation(employeeDetails.getDesignation());
-		employee.setJoiningDate(employeeDetails.getJoiningDate());
-		employee.setSalary(employeeDetails.getSalary());
+    /**
+     * Updates an existing employee record by its ID.
+     *
+     * @param id              the ID of the employee to be updated.
+     * @param employeeDetails the Employee object containing updated details.
+     * @return the updated Employee object.
+     * @throws ResourceNotFoundException if the employee with the specified ID does
+     *                                   not exist.
+     */
+    @CrossOrigin(origins = {"http://employee-management-frontend-app.s3-website.ap-south-1.amazonaws.com",
+            "http://localhost:4200"})
+    @PutMapping("/employees/{id}")
+    public ResponseEntity<Employee> updateEmployeeByID(@PathVariable Long id, @RequestBody Employee employeeDetails) {
+        logger.info("Updating employee with id: " + id + " with details: " + employeeDetails);
+        Employee employee = employeeRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Employee with id " + id + "does not exists"));
 
-		Employee updatedEmployee = employeeRepository.save(employee);
+        employee.setFname(employeeDetails.getFname());
+        employee.setLname(employeeDetails.getLname());
+        employee.setEmail(employeeDetails.getEmail());
+        employee.setDepartment(employeeDetails.getDepartment());
+        employee.setDesignation(employeeDetails.getDesignation());
+        employee.setJoiningDate(employeeDetails.getJoiningDate());
+        employee.setSalary(employeeDetails.getSalary());
 
-		return ResponseEntity.ok(updatedEmployee);
-	}
+        Employee updatedEmployee = employeeRepository.save(employee);
 
-	/**
-	 * Deletes an employee record by its ID.
-	 *
-	 * @param id the ID of the employee to be deleted.
-	 * @return a response entity containing a map with a success message.
-	 * @throws ResourceNotFoundException if the employee with the specified ID does
-	 *                                   not exist.
-	 */
-	@CrossOrigin(origins = { "http://employee-management-frontend-app.s3-website.ap-south-1.amazonaws.com",
-			"http://localhost:4200" })
-	@DeleteMapping("/employees/{id}")
-	public ResponseEntity<Map<String, Boolean>> deleteEmployee(@PathVariable Long id) {
-		logger.info("Deleting employee with id: " + id);
+        return ResponseEntity.ok(updatedEmployee);
+    }
 
-		Employee employee = employeeRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Employee with id " + id + "does not exists"));
+    /**
+     * Deletes an employee record by its ID.
+     *
+     * @param id the ID of the employee to be deleted.
+     * @return a response entity containing a map with a success message.
+     * @throws ResourceNotFoundException if the employee with the specified ID does
+     *                                   not exist.
+     */
+    @CrossOrigin(origins = {"http://employee-management-frontend-app.s3-website.ap-south-1.amazonaws.com",
+            "http://localhost:4200"})
+    @DeleteMapping("/employees/{id}")
+    public ResponseEntity<Map<String, Boolean>> deleteEmployee(@PathVariable Long id) {
+        logger.info("Deleting employee with id: " + id);
 
-		employeeRepository.delete(employee);
+        Employee employee = employeeRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Employee with id " + id + "does not exists"));
 
-		Map<String, Boolean> response = new HashMap<>();
-		response.put("Deleted", Boolean.TRUE);
-		logger.info("Employee with id: " + id + " deleted successfully");
-		logger.info("Response: " + response);
-		return ResponseEntity.ok(response);
+        employeeRepository.delete(employee);
 
-	}
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("Deleted", Boolean.TRUE);
+        logger.info("Employee with id: " + id + " deleted successfully");
+        logger.info("Response: " + response);
+        return ResponseEntity.ok(response);
+
+    }
 
 }
