@@ -14,8 +14,7 @@ The Employee Management System is a comprehensive web application designed to st
 *Frontend:*
 - **Angular:** The frontend of the application is developed using Angular, a powerful and dynamic front-end framework. Angular facilitates the creation of a responsive and interactive user interface, enabling seamless communication with the backend.
 
-# Home Page
-![Web capture_11-1-2024_143259_localhost](https://github.com/adityasurya4103/employee-management-system-angular-spring-boot-mysql/assets/97177344/f76ac939-84aa-480a-adaa-5f5a8b70f143)
+
 
 # View all Employees Page
 ![Web capture_11-1-2024_143359_localhost](https://github.com/adityasurya4103/employee-management-system-angular-spring-boot-mysql/assets/97177344/d4538054-d230-4faa-9313-d0af96e64bc9)
@@ -67,6 +66,7 @@ The backend, powered by Spring Boot, handles data processing, business logic, an
 Angular, on the frontend, provides a dynamic and responsive user interface. It facilitates the creation of modular components and services, enhancing code maintainability and reusability. Angular's two-way data binding ensures real-time updates between the user interface and backend data.
 
 In conclusion, the Employee Management System offers a robust solution for organizations to efficiently manage their workforce. The use of Spring Boot, Angular, and MySQL ensures a scalable, secure, and user-friendly platform for handling various employee-related tasks.
+
 
 
 
